@@ -5,11 +5,11 @@ public class Conta01 {
 
         ContaCorrente conta = new ContaCorrente();
 
-        conta.numero = "12345";
-        conta.agencia = "0546";
-        conta.especial = true;
-        conta.chequeEspecial = 500;
-        conta.saldo = -10;
+        conta.setAgencia("0458");
+        conta.setNumero("45680");
+        conta.setEspecial(true);
+        conta.setChequeEspecial(500);
+        conta.setSaldo(10);
 
         conta.mostrarInfo();
 
@@ -36,5 +36,7 @@ public class Conta01 {
         } else {
             System.out.println("você não esta usando o cheque especial");
         }
+
+        conta.realizarSaque(5);
     }
 }

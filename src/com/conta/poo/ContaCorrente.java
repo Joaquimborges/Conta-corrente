@@ -1,33 +1,83 @@
 package com.conta.poo;
 
 public class ContaCorrente {
-    String numero;
-    String agencia;
-    boolean especial;
-    double chequeEspecial;
-    double saldo;
+   private String numero;
+   private String agencia;
+   private boolean especial;
+   private double chequeEspecial;
+   private double saldo;
 
-    void mostrarInfo(){
-        System.out.println("Numero da conta: " + numero);
-        System.out.println("Agência: " + agencia);
+    public ContaCorrente() {  }
+
+    public ContaCorrente(String numero, String agencia, boolean especial, double chequeEspecial, double saldo) {
+        this.numero = numero;
+        this.agencia = agencia;
+        this.especial = especial;
+        this.chequeEspecial = chequeEspecial;
+        this.saldo = saldo;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
+    }
+
+    public boolean isEspecial() {
+        return especial;
+    }
+
+    public void setEspecial(boolean especial) {
+        this.especial = especial;
+    }
+
+    public double getChequeEspecial() {
+        return chequeEspecial;
+    }
+
+    public void setChequeEspecial(double chequeEspecial) {
+        this.chequeEspecial = chequeEspecial;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public void mostrarInfo(){
+        System.out.println("Numero da conta: " + this.numero);
+        System.out.println("Agência: " + this.agencia);
 
     }
 
-    void consultarSaldo(){
-        System.out.println("Saldo atual da conta = " + saldo);
-        System.out.println("Limite do cheque Especial = " + chequeEspecial);
+    public void consultarSaldo(){
+        System.out.println("Saldo atual da conta = " + this.saldo);
+        System.out.println("Limite do cheque Especial = " + this.chequeEspecial);
     }
 
-    boolean realizarSaque(double valorASacar) {
-        if (saldo >= valorASacar) {
-            saldo -= valorASacar;
+    public boolean realizarSaque(double valorASacar) {
+        if (this.saldo >= valorASacar) {
+            this.saldo -= valorASacar;
             System.out.println("Saque realizado com sucesso");
             return true;
         } else {
-            if (especial){
-                double limite = saldo + chequeEspecial;
+            if (isEspecial()){
+                double limite = this.saldo + this.chequeEspecial;
                 if (limite >= valorASacar){
-                    saldo -= valorASacar;
+                    this.saldo -= valorASacar;
                     return true;
                 } else {
                     return false;
@@ -39,15 +89,17 @@ public class ContaCorrente {
         }
     }
 
-    void fazerDeposito(double valorADepositar){
-        saldo += valorADepositar;
+   public void fazerDeposito(double valorADepositar){
+
+        this.saldo += valorADepositar;
     }
 
-    boolean verificarUsoChequeEspecial(){
-        return saldo < 0;
+   public boolean verificarUsoChequeEspecial(){
+        return this.saldo < 0;
     }
 
-    void novaAtividade(){
+   public void novaAtividade(){
+
         System.out.println("---------------------------- Nova atividade -------------------");
     }
 
