@@ -11,32 +11,30 @@ public class Conta01 {
         conta.setChequeEspecial(500);
         conta.setSaldo(10);
 
+        ContaCorrente conta1 = new ContaCorrente("0265","45790");
+        conta1.setSaldo(5);
+
+
+
         conta.mostrarInfo();
 
+        if (conta.verificarUsoChequeEspecial()){
+            System.out.println("você esta usando o cheque especial");
+        } else {
+            System.out.println("você não esta usando o cheque especial");
+        }
+
+        conta.consultarSaldo();
+
+        conta.novaAtividade();
+
+        conta1.consultarSaldo();
+        conta.consultarSaldo();
         conta.fazerDeposito(100);
         conta.consultarSaldo();
-
         conta.novaAtividade();
+        conta.realizarTransferencia(50, conta1);
+        conta1.consultarSaldo();
 
-        conta.realizarSaque(500);
-
-        if (conta.verificarUsoChequeEspecial()){
-            System.out.println("você esta usando o cheque especial");
-        } else {
-            System.out.println("você não esta usando o cheque especial");
-        }
-
-        conta.consultarSaldo();
-
-        conta.novaAtividade();
-        conta.fazerDeposito(600);
-        conta.consultarSaldo();
-        if (conta.verificarUsoChequeEspecial()){
-            System.out.println("você esta usando o cheque especial");
-        } else {
-            System.out.println("você não esta usando o cheque especial");
-        }
-
-        conta.realizarSaque(5);
     }
 }

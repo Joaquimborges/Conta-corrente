@@ -9,12 +9,11 @@ public class ContaCorrente {
 
     public ContaCorrente() {  }
 
-    public ContaCorrente(String numero, String agencia, boolean especial, double chequeEspecial, double saldo) {
+    public ContaCorrente(String numero, String agencia) {
         this.numero = numero;
         this.agencia = agencia;
-        this.especial = especial;
-        this.chequeEspecial = chequeEspecial;
-        this.saldo = saldo;
+
+
     }
 
     public String getNumero() {
@@ -87,6 +86,15 @@ public class ContaCorrente {
             }
 
         }
+    }
+
+    public boolean realizarTransferencia(double valor, ContaCorrente destino){
+        if (this.saldo >= valor){
+            this.saldo -= valor;
+            destino.fazerDeposito(valor);
+            return true;
+        }
+        return false;
     }
 
    public void fazerDeposito(double valorADepositar){
